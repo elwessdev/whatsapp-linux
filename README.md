@@ -10,17 +10,24 @@ An unofficial [WhatsApp Web](https://web.whatsapp.com) wrapper for Ubuntu/Linux 
 - System tray icon with Show/Hide and Quit, unread count in the tooltip
 - Closing the window hides it to the tray instead of quitting
 - Native desktop notifications (via GNOME/libnotify), click-to-focus
-- Persistent login — no re-scanning the QR code on every relaunch
-- Single-instance lock — a second launch just focuses the existing window
+- Persistent login - no re-scanning the QR code on every relaunch
+- Single-instance lock - a second launch just focuses the existing window
 - Hidden menu bar (Alt to reveal), spellcheck, external links open in your default browser
 - A small in-page button to collapse/expand the chat list for a wider conversation view
 
 ## Install
 
-Prebuilt `.deb` and `.AppImage` files: see [Releases](../../releases), or build them yourself (below).
+Download the latest `.deb` or `.AppImage` from the [Releases page](../../releases/latest), or build them yourself (below).
 
+**.deb (Ubuntu/Debian):**
 ```bash
-sudo apt install ./whatsapp-linux_1.0.0_amd64.deb
+sudo apt install ./whatsapp-linux_*.deb
+```
+
+**AppImage** (no install needed, works across most distros):
+```bash
+chmod +x WhatsApp-Desktop-*.AppImage
+./WhatsApp-Desktop-*.AppImage
 ```
 
 ## Build from source
@@ -38,8 +45,8 @@ Requires Node.js and npm. Packaging targets Ubuntu/Debian-based distros via [ele
 
 ## Why does it need `--no-sandbox`?
 
-Ubuntu 23.10+ restricts unprivileged user-namespace creation via AppArmor, which crashes Chromium's sandbox/zygote init for apps without a registered AppArmor profile — the same thing that trips up other unpackaged Electron/CEF apps on these releases. The app disables Chromium's OS-level sandbox to avoid that crash; page-level protections (context isolation, no Node integration in the loaded page, origin-restricted permissions) are unaffected.
+Ubuntu 23.10+ restricts unprivileged user-namespace creation via AppArmor, which crashes Chromium's sandbox/zygote init for apps without a registered AppArmor profile - the same thing that trips up other unpackaged Electron/CEF apps on these releases. The app disables Chromium's OS-level sandbox to avoid that crash; page-level protections (context isolation, no Node integration in the loaded page, origin-restricted permissions) are unaffected.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
