@@ -1,0 +1,64 @@
+{
+  "name": "whatsapp-linux",
+  "productName": "WhatsApp Desktop",
+  "version": "1.0.0",
+  "description": "Unofficial WhatsApp Web wrapper for Ubuntu Linux with tray icon and native notifications",
+  "main": "main.js",
+  "author": "ElwessDev",
+  "homepage": "https://web.whatsapp.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:deb": "electron-builder --linux deb",
+    "build:appimage": "electron-builder --linux AppImage"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.whatsapplinux.desktop",
+    "productName": "WhatsApp Desktop",
+    "copyright": "Copyright © 2026",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icons",
+      "category": "Network;InstantMessaging;",
+      "executableName": "whatsapp-desktop",
+      "executableArgs": ["--no-sandbox"],
+      "synopsis": "WhatsApp Web wrapper for Linux desktop",
+      "description": "Unofficial WhatsApp Web wrapper for Ubuntu Linux with tray icon, background mode and native desktop notifications.",
+      "maintainer": "WhatsApp Linux <bms93951@gmail.com>",
+      "vendor": "WhatsApp Linux"
+    },
+    "deb": {
+      "depends": [
+        "libnotify4",
+        "libnss3",
+        "libxtst6",
+        "libayatana-appindicator3-1"
+      ]
+    }
+  }
+}

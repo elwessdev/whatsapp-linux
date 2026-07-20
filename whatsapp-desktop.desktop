@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WhatsApp Desktop
+Comment=Unofficial WhatsApp Web client for Linux
+GenericName=WhatsApp Client
+Exec=whatsapp-desktop %U
+Terminal=false
+Type=Application
+Icon=whatsapp-desktop
+StartupWMClass=WhatsApp Desktop
+Categories=Network;InstantMessaging;
